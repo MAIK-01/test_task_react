@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap');
+
+@mixin activeHoverStyle {
+  padding-left: 10px;
+  border-bottom: 2px solid $colorBorder;
+  transition: padding-left 500ms;
+}
+
+$colorBorder: rgb(184, 127, 22);
+
+body {
+  font-family: 'Heebo', sans-serif;
+}
+
+
+.test {
+  width: fit-content;
+  margin: 25px auto;
+  padding: 15px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  background-color: orange;
+  border: 2px solid $colorBorder;
+  border-radius: 10px;
+
+  &__wrapper {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  &__search-field {
+    margin-bottom: 25px;
+  }
+}
+
+.search-field {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid $colorBorder;
+
+
+  &__input {
+    height: 25px;
+    border: 1px solid $colorBorder;
+    border-radius: 2px;
+    padding-left: 10px;
+    background-color: rgba(255, 205, 112, 0.748);
+
+    &::placeholder{
+      color: rgb(162, 105, 0);
+    }
+
+    &:focus {
+      box-shadow: 0 0 5px #131c1c;
+      outline: none;
+    }
+  }
+
+  &__button {
+    min-width: 60px;
+
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+
+    border: 2px solid $colorBorder;
+    background-color: rgb(210, 147, 31);
+    border-radius: 2px;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: no-drop;
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}
+
+.list-country {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    cursor: pointer;
+    transition-duration: 500ms;
+
+    &:hover {
+      @include activeHoverStyle
+    }
+  }
+}
+
+.holidays {
+  text-align: right;
+  max-width: 50%;
+
+
+  &__title {
+    margin: 0;
+  }
+
+  &__wrapper {
+    position: sticky;
+    top: 25px;
+    margin: 0;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.active {
+  @include activeHoverStyle;
+}
